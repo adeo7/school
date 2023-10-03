@@ -6,19 +6,25 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
+import { EspecialidadesIndexComponent } from './Especialidades/especialidades-index/especialidades-index.component';
+import { EspecialidadesFormComponent } from './Especialidades/especialidades-form/especialidades-form.component';
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EspecialidadesIndexComponent,
+    EspecialidadesFormComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       autoDismiss: false,
-      positionClass: "toast-bottom-right"
+      positionClass: "toast-bottom-right",
     }
       
     )
