@@ -1,0 +1,22 @@
+<h1 class="titulo">Listado de especialidades</h1>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Aciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let especialidad of listEspecialidades">
+            <th scope="row">{{especialidad.id}}</th>
+            <th>{{especialidad.nombre}}</th>
+            <th>
+                <button class="btn btn-warning m-1" (click)="edit(especialidad.id)">Editar</button>
+                <button class="btn btn-danger" (click)="delete(especialidad.id)">Eliminar</button>
+            </th>
+        </tr>
+    </tbody>
+</table>
+</div>
