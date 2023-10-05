@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EspecialidadService } from '../especialidad.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-especialidades-index',
@@ -7,9 +8,8 @@ import { EspecialidadService } from '../especialidad.service';
   styleUrls: ['./especialidades-index.component.css']
 })
 export class EspecialidadesIndexComponent implements OnInit {
-  public hola="hola mundo"
   public listEspecialidades :any=[]
-  constructor(private service: EspecialidadService){
+  constructor(private service: EspecialidadService, private route: Router){
 
   }
   ngOnInit(): void {
@@ -20,14 +20,24 @@ export class EspecialidadesIndexComponent implements OnInit {
     this.service.getAll().subscribe(
       result=>{
         this.listEspecialidades=result.data
-        console.log(this.listEspecialidades)
       }
     );
   }
   edit(id:any) {
-
+    this.route.navigateByUrl('/especialidades/edit/'+id);
   }
   delete(id:any){
-
+   this.service.delete(id).subscribe(
+    result=>{
+      alert("especialidad eliminada")
+      this.getEspecialidades();
+    },
+    error=>{
+      console.log(error);
+    }
+   );
+  }
+  new(){
+    this.route.navigateByUrl('/especialidades/new');
   }
 }

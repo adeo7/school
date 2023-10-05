@@ -16,4 +16,21 @@ export class EspecialidadService {
   getAll() {
     return this.Http.get<any>(this.urlBase,{ headers :this.httpHeader })
   }
+
+  save(data:any,id:any) {
+    if (id!=undefined) {
+      return this.Http.put<any>(this.urlBase + '/'+ id,data,{headers :this.httpHeader})  
+    }else{
+      return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
+    }
+   
+  }
+
+  getById(id:number) {
+    return this.Http.get<any>(this.urlBase+'/'+id,{headers :this.httpHeader})
+  }
+
+  delete(id:number) {
+    return this.Http.delete<any>(this.urlBase+'/'+id.toString(),{headers :this.httpHeader})
+  }
 }

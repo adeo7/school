@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { EspecialidadesIndexComponent } from './Especialidades/especialidades-index/especialidades-index.component';
 import { EspecialidadesFormComponent } from './Especialidades/especialidades-form/especialidades-form.component';
 import{HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,9 @@ import{HttpClientModule} from '@angular/common/http';
     ToastrModule.forRoot({
       autoDismiss: false,
       positionClass: "toast-bottom-right",
-    }
-      
-    )
+    }),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
