@@ -1,16 +1,20 @@
 
 <h1 class="titulo">Crear Especialidad</h1>
 <div class="container m-2">
-
-    <form [formGroup]="frmEspecialidad">
-        <input 
-        class="form-control"
-        type="text"
-        placeholder="Nombre de la especialidad."
-        formControlName="nombre"
-        >
-
-        <button class="btn btn-primary mt-2" (click)="guardar()">Guardar especialidad</button>
-
-    </form>
+    <div class="row">
+        <div class="col-lg-8">
+            <form [formGroup]="frmEspecialidad">
+                <input 
+                class="form-control"
+                type="text"
+                placeholder="Nombre de la especialidad."
+                formControlName="nombre"
+                >
+        
+                <button class="btn btn-primary mt-2" (click)="guardar()">Guardar especialidad</button>
+        
+            </form>
+        </div>
+    </div>
+   
 </div>

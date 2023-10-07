@@ -1,24 +1,28 @@
 <h1 class="titulo">Listado de especialidades</h1>
 
 <div class="container">
-    <button class="btn btn-primary m-2" (click)="new()">Crear Especialidad</button>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Aciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let especialidad of listEspecialidades">
-            <th scope="row">{{especialidad.id}}</th>
-            <th>{{especialidad.nombre}}</th>
-            <th>
-                <button class="btn btn-warning m-1" (click)="edit(especialidad.id)">Editar</button>
-                <button class="btn btn-danger" (click)="delete(especialidad.id)">Eliminar</button>
-            </th>
-        </tr>
-    </tbody>
-</table>
+    <button class="btn btn-primary m-3" (click)="new()">Crear Especialidad</button>
+<div class="row">
+    <div class="col-lg-10">
+        <table class="table table-striped table-border table-hover">
+            <thead>
+                <tr >
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Aciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr  *ngFor="let especialidad of listEspecialidades">
+                    <th scope="row">{{especialidad.id}}</th>
+                    <th>{{especialidad.nombre}}</th>
+                    <th>
+                        <button class="btn btn-sm btn-warning m-1" (click)="edit(especialidad.id)">Editar</button>
+                        <button class="btn btn-sm btn-danger" (click)="delete(especialidad.id)">Eliminar</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </div>
