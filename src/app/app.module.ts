@@ -10,12 +10,17 @@ import { EspecialidadesIndexComponent } from './Especialidades/especialidades-in
 import { EspecialidadesFormComponent } from './Especialidades/especialidades-form/especialidades-form.component';
 import{HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfesoresIndexComponent } from './profesores/profesores-index/profesores-index.component';
+import { ProfesoresFormComponent } from './profesores/profesores-form/profesores-form.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
     AppComponent,
     EspecialidadesIndexComponent,
-    EspecialidadesFormComponent
+    EspecialidadesFormComponent,
+    ProfesoresIndexComponent,
+    ProfesoresFormComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       positionClass: "toast-bottom-right",
     }),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

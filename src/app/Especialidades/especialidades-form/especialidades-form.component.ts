@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EspecialidadService } from '../especialidad.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HelperserviceService } from 'src/services/helperservice.service';
 
 @Component({
   selector: 'app-especialidades-form',
@@ -31,7 +32,9 @@ export class EspecialidadesFormComponent implements OnInit {
 
 
   constructor (private service :EspecialidadService,
-              private activateRoute: ActivatedRoute
+              private activateRoute: ActivatedRoute,
+              private helperService: HelperserviceService,
+              private route: Router
     ){
       this.id= this.activateRoute.snapshot.params['id'];
     this.frmEspecialidad = new FormGroup({
@@ -50,11 +53,14 @@ export class EspecialidadesFormComponent implements OnInit {
     }
     this.service.save(data,this.id).subscribe(
       result=>{
-        alert("especialidad guardada")
+        this.helperService.showNotify("success","Especialidad guardada")
       },
       error=>{
-        console.log(error)
+        this.helperService.showNotify("error","No se pudo guardar")
       }
     )
+  }
+  Volver(){
+    this.route.navigateByUrl('/especialidades');
   }
 }

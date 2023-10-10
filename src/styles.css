@@ -1,2 +1,6 @@
 @import '~ngx-toastr/toastr';
 @import "~@ng-select/ng-select/themes/default.theme.css";
+.titulo{
+    text-align: center;
+    margin: 2%;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EspecialidadService } from '../especialidad.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HelperserviceService } from 'src/services/helperservice.service';
 
 @Component({
   selector: 'app-especialidades-index',
@@ -9,7 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EspecialidadesIndexComponent implements OnInit {
   public listEspecialidades :any=[]
-  constructor(private service: EspecialidadService, private route: Router){
+  constructor(private service: EspecialidadService,
+               private route: Router,
+               private helperservice: HelperserviceService){
 
   }
   ngOnInit(): void {
@@ -29,11 +32,11 @@ export class EspecialidadesIndexComponent implements OnInit {
   delete(id:any){
    this.service.delete(id).subscribe(
     result=>{
-      alert("especialidad eliminada")
+     this.helperservice.showNotify("success","Especialidad Eliminada");
       this.getEspecialidades();
     },
     error=>{
-      console.log(error);
+      this.helperservice.showNotify("error","Ocurrio un error al eliminar");
     }
    );
   }
