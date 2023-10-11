@@ -6,6 +6,8 @@ import { ProfesoresIndexComponent } from './profesores/profesores-index/profesor
 import { ProfesoresFormComponent } from './profesores/profesores-form/profesores-form.component';
 import { GradosIndexComponent } from './grados/grados-index/grados-index.component';
 import { GradosFormComponent } from './grados/grados-form/grados-form.component';
+import { MateriaIndexComponent } from './Materias/materia-index/materia-index.component';
+import { MateriaFormComponent } from './Materias/materia-form/materia-form.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,18 @@ const routes: Routes = [
   {
     path:'grados/edit/:id',
     component: GradosFormComponent
+  },
+  {
+    path:'materia',
+    component: MateriaIndexComponent
+  },
+  {
+    path:'materia/new',
+    component: MateriaFormComponent
+  },
+  {
+    path:'materia/edit/:id',
+    component: MateriaFormComponent
   }
   
 ];

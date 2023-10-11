@@ -15,6 +15,8 @@ import { ProfesoresFormComponent } from './profesores/profesores-form/profesores
 import { NgSelectModule } from '@ng-select/ng-select';
 import { GradosIndexComponent } from './grados/grados-index/grados-index.component';
 import { GradosFormComponent } from './grados/grados-form/grados-form.component';
+import { MateriaIndexComponent } from './Materias/materia-index/materia-index.component';
+import { MateriaFormComponent } from './Materias/materia-form/materia-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { GradosFormComponent } from './grados/grados-form/grados-form.component'
     ProfesoresIndexComponent,
     ProfesoresFormComponent,
     GradosIndexComponent,
-    GradosFormComponent
+    GradosFormComponent,
+    MateriaIndexComponent,
+    MateriaFormComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,20 @@
+<h1 class="titulo">Crear Materia</h1>
+<div class="container m-2">
+    <div class="row">
+        <div class="col-lg-8">
+            <form [formGroup]="frmMateria">
+                <input 
+                class="form-control"
+                type="text"
+                placeholder="Nombre de la materia."
+                formControlName="nombre"
+                >
+        
+                <button class="btn btn-primary m-2" (click)="guardar()">Guardar Materia</button>
+                <button class="btn btn-danger m-2" (click)="Volver()">Volver</button>
+        
+            </form>
+        </div>
+    </div>
+   
+</div>
