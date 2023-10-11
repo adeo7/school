@@ -9,7 +9,7 @@ import { HelperserviceService } from 'src/services/helperservice.service';
   styleUrls: ['./especialidades-index.component.css']
 })
 export class EspecialidadesIndexComponent implements OnInit {
-  public listEspecialidades :any=[]
+  public listEspecialidades :any=[];
   constructor(private service: EspecialidadService,
                private route: Router,
                private helperservice: HelperserviceService){

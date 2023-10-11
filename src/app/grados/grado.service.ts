@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfesoresServicesService {
-  private urlBase = 'http://localhost:8000/api/profesores';
+export class GradoService {
+  private urlBase = 'http://localhost:8000/api/grado';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {
@@ -18,11 +18,10 @@ export class ProfesoresServicesService {
   }
 
   save(data:any,id:any) {
-    if (id!=undefined ) {
+    if (id!=undefined) {
       return this.Http.put<any>(this.urlBase + '/'+ id,data,{headers :this.httpHeader})  
     }else{
       return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
-      console.log(data);
     }
    
   }

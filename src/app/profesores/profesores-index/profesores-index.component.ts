@@ -23,7 +23,6 @@ export class ProfesoresIndexComponent implements OnInit {
     this.service.getAll().subscribe(
       result=>{
         this.listProfesores=result.data
-        console.log(this.listProfesores)
       }
     );
   }

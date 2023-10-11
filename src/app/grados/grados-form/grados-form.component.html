@@ -1,0 +1,34 @@
+
+<h1 class="titulo">Crear Grado</h1>
+<div class="container m-2">
+    <div class="row">
+        <div class="col-lg-8">
+            <form [formGroup]="frmGrado">
+                <input 
+                class="form-control m-2"
+                type="text"
+                placeholder="Nombre del grado"
+                formControlName="nombre"
+                >
+                <input 
+                class="form-control m-2"
+                type="text"
+                placeholder="salon del grado"
+                formControlName="salon"
+                >
+                <select 
+                formControlName="jornada"
+                 class="form-select m-2"
+                  >
+                    <option value="true">Mañana</option>
+                    <option value="false">Tarde</option>
+                  </select>
+        
+                <button class="btn btn-primary m-2" (click)="guardar()">Guardar Grado</button>
+                <button class="btn btn-danger m-2" (click)="Volver()">Volver</button>
+        
+            </form>
+        </div>
+    </div>
+   
+</div>

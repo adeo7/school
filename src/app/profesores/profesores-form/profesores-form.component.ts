@@ -21,10 +21,12 @@ export class ProfesoresFormComponent implements OnInit{
       this.service.getById(this.id).subscribe(
         result=>{
           this.frmProfesor.controls["nombre"].setValue(result.data.nombre);
-          console.log(result.data.nombre);
+          this.frmProfesor.controls["apellidos"].setValue(result.data.apellido);
+          this.frmProfesor.controls["especialidad"].setValue(result.data.especialidad.id);
+          console.log(result.data.especialidad);
         },
         error=>{
-
+          console.log(error);
         }
       )
       
@@ -55,7 +57,7 @@ export class ProfesoresFormComponent implements OnInit{
 
     let data={
       "nombre":this.frmProfesor.controls["nombre"].value,
-      "apellidos":this.frmProfesor.controls["apellidos"].value,
+      "apellido":this.frmProfesor.controls["apellidos"].value,
       "especialidad":{
         "id":this.frmProfesor.controls["especialidad"].value
       }

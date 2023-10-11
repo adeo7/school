@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfesoresIndexComponent } from './profesores/profesores-index/profesores-index.component';
 import { ProfesoresFormComponent } from './profesores/profesores-form/profesores-form.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { GradosIndexComponent } from './grados/grados-index/grados-index.component';
+import { GradosFormComponent } from './grados/grados-form/grados-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     EspecialidadesIndexComponent,
     EspecialidadesFormComponent,
     ProfesoresIndexComponent,
-    ProfesoresFormComponent
+    ProfesoresFormComponent,
+    GradosIndexComponent,
+    GradosFormComponent
   ],
   imports: [
     CommonModule,
