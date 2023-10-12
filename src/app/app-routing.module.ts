@@ -8,6 +8,8 @@ import { GradosIndexComponent } from './grados/grados-index/grados-index.compone
 import { GradosFormComponent } from './grados/grados-form/grados-form.component';
 import { MateriaIndexComponent } from './Materias/materia-index/materia-index.component';
 import { MateriaFormComponent } from './Materias/materia-form/materia-form.component';
+import { AprendizIndexComponent } from './Aprendices/aprendiz-index/aprendiz-index.component';
+import { AprendizFormComponent } from './Aprendices/aprendiz-form/aprendiz-form.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,18 @@ const routes: Routes = [
   {
     path:'materia/edit/:id',
     component: MateriaFormComponent
+  },
+  {
+    path:'aprendiz',
+    component: AprendizIndexComponent
+  },
+  {
+    path:'aprendiz/new',
+    component: AprendizFormComponent
+  },
+  {
+    path:'aprendiz/edit/:id',
+    component: AprendizFormComponent
   }
   
 ];

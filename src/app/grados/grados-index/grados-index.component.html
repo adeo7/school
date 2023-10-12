@@ -1,4 +1,4 @@
-<h1 class="titulo">Listado de especialidades</h1>
+<h1 class="titulo">Listado de Grados</h1>
 
 <div class="container">
     <button class="btn btn-primary m-3" (click)="new()">Crear Grado</button>
@@ -15,14 +15,14 @@
                 </tr>
             </thead>
             <tbody class="table-group-divider">
-                <tr  *ngFor="let especialidad of listGrados">
-                    <th scope="row">{{especialidad.id}}</th>
-                    <th>{{especialidad.nombre}}</th>
-                    <th >{{especialidad.jornada ? 'Mañana':'Tarde'}}</th>
-                    <th>{{especialidad.salon}}</th>
+                <tr  *ngFor="let grado of listGrados">
+                    <th scope="row">{{grado.id}}</th>
+                    <th>{{grado.nombre}}</th>
+                    <th >{{grado.jornada ? 'Mañana':'Tarde'}}</th>
+                    <th>{{grado.salon}}</th>
                     <th>
-                        <button class="btn btn-sm btn-warning m-1" (click)="edit(especialidad.id)">Editar</button>
-                        <button class="btn btn-sm btn-danger" (click)="delete(especialidad.id)">Eliminar</button>
+                        <button class="btn btn-sm btn-warning m-1" (click)="edit(grado.id)">Editar</button>
+                        <button class="btn btn-sm btn-danger" (click)="delete(grado.id)">Eliminar</button>
                     </th>
                 </tr>
             </tbody>

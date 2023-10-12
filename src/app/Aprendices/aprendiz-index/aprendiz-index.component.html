@@ -1,0 +1,32 @@
+<h1 class="titulo">Listado de aprendices</h1>
+
+<div class="container">
+    <button class="btn btn-primary m-3" (click)="new()">Crear Aprendiz</button>
+<div class="row">
+    <div class="col-lg-10">
+        <table class="table table-striped table-border table-hover">
+            <thead>
+                <tr >
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Grado</th>
+                    <th scope="col">Aciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr  *ngFor="let aprendiz of listAprendices">
+                    <th scope="row">{{aprendiz.id}}</th>
+                    <th>{{aprendiz.nombre}}</th>
+                    <th>{{aprendiz.apellido}}</th>
+                    <th>{{aprendiz.grado.nombre}}</th>
+                    <th>
+                        <button class="btn btn-sm btn-warning m-1" (click)="edit(aprendiz.id)">Editar</button>
+                        <button class="btn btn-sm btn-danger" (click)="delete(aprendiz.id)">Eliminar</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

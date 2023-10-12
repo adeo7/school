@@ -17,6 +17,8 @@ import { GradosIndexComponent } from './grados/grados-index/grados-index.compone
 import { GradosFormComponent } from './grados/grados-form/grados-form.component';
 import { MateriaIndexComponent } from './Materias/materia-index/materia-index.component';
 import { MateriaFormComponent } from './Materias/materia-form/materia-form.component';
+import { AprendizIndexComponent } from './Aprendices/aprendiz-index/aprendiz-index.component';
+import { AprendizFormComponent } from './Aprendices/aprendiz-form/aprendiz-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MateriaFormComponent } from './Materias/materia-form/materia-form.compo
     GradosIndexComponent,
     GradosFormComponent,
     MateriaIndexComponent,
-    MateriaFormComponent
+    MateriaFormComponent,
+    AprendizIndexComponent,
+    AprendizFormComponent
   ],
   imports: [
     CommonModule,
