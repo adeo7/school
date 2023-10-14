@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EspecialidadService } from 'src/app/Especialidades/especialidad.service';
 import { HelperserviceService } from 'src/services/helperservice.service';
 import { ProfesoresServicesService } from '../profesores-services.service';
+import { MateriaService } from 'src/app/Materias/materia.service';
+import { GradoService } from 'src/app/grados/grado.service';
+import { ProfesorMateriaGradoService } from '../profesor-materia-grado.service';
 
 @Component({
   selector: 'app-profesores-form',
@@ -13,7 +16,11 @@ import { ProfesoresServicesService } from '../profesores-services.service';
 export class ProfesoresFormComponent implements OnInit{
   public id=0;
   public frmProfesor: FormGroup ;
+  public frmProfesorMateriaGrado: FormGroup ;
   public listEspecialidades: any=[];
+  public listMaterias: any=[];
+  public listGrados: any=[];
+  public listProfesorMateriasGrados: any=[];
 
   ngOnInit(): void {
     this.getEspecilidades();
@@ -39,13 +46,21 @@ export class ProfesoresFormComponent implements OnInit{
               private activateRoute: ActivatedRoute,
               private helperService: HelperserviceService,
               private route: Router,
-              private especialidadService: EspecialidadService
+              private especialidadService: EspecialidadService,
+              private materiaService: MateriaService,
+              private gradosService: GradoService,
+              private PMGservice: ProfesorMateriaGradoService
     ){
       this.id= this.activateRoute.snapshot.params['id'];
     this.frmProfesor = new FormGroup({
       nombre:new FormControl(null,[Validators.required]),
       apellidos:new FormControl(null,[Validators.required]),
       especialidad:new FormControl(null,[Validators.required])
+    });
+    this.frmProfesorMateriaGrado= new FormGroup({
+      materia:new FormControl(null,[Validators.required]),
+      grado:new FormControl(null,[Validators.required])
+
     });
   }
 
@@ -67,6 +82,7 @@ export class ProfesoresFormComponent implements OnInit{
         this.helperService.showNotify("success","Pofesor guardado correctamente")
       },
       error=>{
+        console.log(error)
         this.helperService.showNotify("error","No se pudo guardar")
       }
     )
@@ -80,5 +96,47 @@ export class ProfesoresFormComponent implements OnInit{
         this.listEspecialidades=result.data
       }
     ); 
+    this.materiaService.getAll().subscribe(
+      result=>{
+        this.listMaterias=result.data
+      }
+    ); 
+    this.gradosService.getAll().subscribe(
+      result=>{
+        this.listGrados=result.data
+      }
+    ); 
+    this.PMGservice.getAll(this.id).subscribe(
+      result=>{
+        this.listProfesorMateriasGrados=result.data
+      }
+    ); 
+  }
+ 
+  guardarMateriaGrado(){
+    if (this.frmProfesorMateriaGrado.invalid) {
+      this.helperService.showNotify("warning","El campo no cumple con las validaciones")
+      return
+    }
+
+    let data={
+      "profesor":{
+        "id":this.id
+      },
+      "materia":{
+        "id":this.frmProfesorMateriaGrado.controls["materia"].value
+      },
+      "grado":{
+        "id":this.frmProfesorMateriaGrado.controls["grado"].value
+      }
+    }
+    this.PMGservice.save(data).subscribe(
+      result=>{
+        this.helperService.showNotify("success","Materias y grados asociados")
+      },
+      error=>{
+        this.helperService.showNotify("error","No se pudo asociar")
+      }
+    )
   }
 }

@@ -1,31 +1,81 @@
 
 <h1 class="titulo">Crear Profesor</h1>
 <div class="container m-2">
-    <div class="row">
-        <div class="col-lg-8">
-            <form [formGroup]="frmProfesor">
-                <input 
-                class="form-control m-2"
-                type="text"
-                placeholder="Nombre del Profesor"
-                formControlName="nombre"
-                >
-                <input 
-                class="form-control m-2"
-                type="text"
-                placeholder="Apellidos del Profesor"
-                formControlName="apellidos"
-                >
-                <ng-select [items]="listEspecialidades"
-                            bindLabel="nombre"
-                            bindValue="id"
-                            formControlName="especialidad"    
-                ></ng-select>
-        
-                <button class="btn btn-primary m-2" (click)="guardar()">Guardar Profesor</button>
-                <button class="btn btn-danger m-2" (click)="Volver()">Volver</button>
-        
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form [formGroup]="frmProfesor">
+                        <input 
+                        class="form-control m-2"
+                        type="text"
+                        placeholder="Nombre del Profesor"
+                        formControlName="nombre"
+                        >
+                        <input 
+                        class="form-control m-2"
+                        type="text"
+                        placeholder="Apellidos del Profesor"
+                        formControlName="apellidos"
+                        >
+                        <ng-select [items]="listEspecialidades"
+                                    class="form-control m-2"
+                                    bindLabel="nombre"
+                                    bindValue="id"
+                                    formControlName="especialidad"    
+                        ></ng-select>
+                
+                        <button class="btn btn-primary m-2" (click)="guardar()">Guardar Profesor</button>
+                        <button class="btn btn-danger m-2" (click)="Volver()">Volver</button>
+                
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer" *ngIf="id">
+            <form [formGroup]="frmProfesorMateriaGrado">
+                <div class="lg-4">
+                    <ng-select [items]="listMaterias"
+                    class="form-control m-2"
+                    bindLabel="nombre"
+                    bindValue="id"
+                    formControlName="materia"    
+                    ></ng-select>
+                </div>
+
+                <div class="lg-4">
+                    <ng-select [items]="listGrados"
+                    class="form-control m-2"
+                    bindLabel="nombre"
+                    bindValue="id"
+                    formControlName="grado"    
+                    ></ng-select>
+                </div>
+               <button class="btn btn-primary" (click)="guardarMateriaGrado()">Asociar materias y grado</button>
             </form>
+            <table class="table table-striped table-border table-hover">
+                <thead>
+                    <tr >
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">especialidad</th>
+                        <th scope="col">Aciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr  *ngFor="let profesor of listProfesorMateriasGrados">
+                        <th scope="row">{{profesor.id}}</th>
+                        <th>{{profesor.nombre}}</th>
+                        <th>{{profesor.apellido}}</th>
+                        <th>{{profesor.especialidad.nombre}}</th>
+                        <th>
+                            <button class="btn btn-sm btn-warning m-1" >Editar</button>
+                            <button class="btn btn-sm btn-danger" >Eliminar</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
    
