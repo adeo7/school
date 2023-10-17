@@ -21,6 +21,6 @@ export class ProfesorMateriaGradoService {
       return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
   }
   delete(id:number) {
-    return this.Http.delete<any>(this.urlBase+'/'+id.toString(),{headers :this.httpHeader})
+    return this.Http.delete<any>(this.urlBase+'/'+id,{headers :this.httpHeader})
   }
 }

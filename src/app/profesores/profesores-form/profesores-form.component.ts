@@ -23,7 +23,7 @@ export class ProfesoresFormComponent implements OnInit{
   public listProfesorMateriasGrados: any=[];
 
   ngOnInit(): void {
-    this.getEspecilidades();
+    this.getList();
     if (this.id!=0 && this.id != undefined) {
       this.service.getById(this.id).subscribe(
         result=>{
@@ -90,7 +90,7 @@ export class ProfesoresFormComponent implements OnInit{
   Volver(){
     this.route.navigateByUrl('/profesores');
   }
-  getEspecilidades(){
+  getList(){
     this.especialidadService.getAll().subscribe(
       result=>{
         this.listEspecialidades=result.data
@@ -108,6 +108,7 @@ export class ProfesoresFormComponent implements OnInit{
     ); 
     this.PMGservice.getAll(this.id).subscribe(
       result=>{
+       
         this.listProfesorMateriasGrados=result.data
       }
     ); 
@@ -138,5 +139,16 @@ export class ProfesoresFormComponent implements OnInit{
         this.helperService.showNotify("error","No se pudo asociar")
       }
     )
+  }
+  DeleteRelacion(id:number){
+    this.PMGservice.delete(id).subscribe(
+      result=>{
+        this.helperService.showNotify("success","Relación Eliminada")
+        this.getList();
+      },
+      error=>{
+        this.helperService.showNotify("error","Ocurrio un error al eliminar");
+      }
+    );
   }
 }
